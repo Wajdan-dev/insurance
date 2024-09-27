@@ -1,0 +1,219 @@
+.hero-banner_textContent__AV4KF,.hero-banner_heroBanner___8vlB{
+    background: #1888ac !important;
+}
+.containerss {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.custommm img{
+    width: 200px;
+    height: 80px;
+}
+.slide-text{
+    width: 100%;
+    display: inline-block;
+    color: white;
+    white-space: nowrap;
+    position: absolute;
+    left: 100%;
+    animation: slideText 10s linear infinite;
+}
+a{
+    border: none !important;
+}
+
+
+.quote-right,.quote-left{
+    width: 50%;
+}
+.quote-right{
+    padding: 3rem 5rem;
+}
+.quote-right h4{
+    font-size: 25px;
+    margin: 20px 0px;
+}
+.quote-left h2{
+    font-size: 23px;
+}
+.MethodsText_methodNumber__QxN7H h4{
+    font-weight: 800 !important;
+}
+@keyframes slideText {
+    0% { left: 100%; }
+    100% { left: -100%; }
+}
+ 
+
+
+
+.main-sectionn {
+    display: flex;
+    background-color: #1888ac;
+    align-items: center;
+    height: calc(100vh - 125px);  
+}
+ 
+.left-section,.video-section{
+    width: 50%;
+
+}
+ 
+.video-section img{
+    height: calc(100vh - 125px);  
+    object-fit: cover;
+}
+
+.left-section{
+    padding:0 7.5rem;
+    color: white;
+}
+.left-section h1{
+    font-size: 3rem;
+    font-weight: bold;
+line-height: 100%;
+margin-bottom: 1.0625rem;
+}
+.mobile-btmm{
+    display: none;
+}
+
+.top-section{
+    padding: 10px 2rem;
+    background-color: #E7E7E7;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media(max-width:776px){
+    .footer_footerBottom__Y99Li .footer_footerCopyright__p141M.footer_captchaNotice__rjLxw{
+        text-align: center;
+    }
+    .footer_footerBottom__Y99Li{
+        padding: 20px;
+    }
+    .custommm img{
+        width: 150px;
+        height: auto;
+    }
+    .footer_footerContainer__jvzDq .footer_footerLogo__N05vi {
+        height: 6.25rem;
+        width: 16.8125rem;
+        padding-top: 3rem;
+    }
+    
+}
+@media screen and (min-width: 776px) and (max-width: 1060px) {
+    .left-section{
+        padding: 0 2.5rem;
+    }
+ .main-sectionn {
+    height: calc(100vh - 116px);  
+
+ }
+ .video-section img{
+    height: auto;
+}
+
+    
+}
+@media screen and (min-width: 670px) and (max-width: 800px) {
+  
+    .left-section p{
+        font-size: 25px;
+    }
+  
+  
+}
+
+
+@media(max-width:820px){
+    .quote-right,.quote-left{
+        width: 100%;
+    }
+   
+    .quote-right{
+        padding: 3rem;
+    }
+    .left-section,.video-section{
+        width: 100%;
+    
+    }
+    .main-sectionn{
+        display: flex;
+        flex-direction: column-reverse;
+        height: calc(100vh - 111px);
+        justify-content:  start !important;
+    }
+    .left-section h1{
+        font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 100%;
+    margin-bottom: 1.0625rem;
+    }
+    .left-section{
+        padding-top: 2rem;
+        padding-bottom: 4.5rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        color: white;
+    }
+    .video-section img{
+        height: 500px;
+        object-fit: cover;  
+    }
+    .mbl-bttn{
+        width: 100%;
+        padding-top: 1rem;
+    }
+    .mobile-btmm{
+        display: block;
+        color: black;
+        border: 2px solid black;
+        padding: 10px 7px;
+    }
+    .header_header__IkGoF .header_headerWrapper__EF5GH{
+        align-items: center;
+    }
+    .elementor-icon-list-text{
+        font-size: 13px;
+    }
+    .footer-2{
+        width: 100% !important;
+    }
+    .footer_footerTextSection__2PIaF .footer_footerSections__KI4uj{
+        align-items: self-start !important;
+    }
+   
+}
+@media(max-width:670px){
+    .left-section p{
+        font-size: 22px;
+    }
+    .video-section img{
+        height: 170px;
+        object-fit: cover;  
+    }
+}
+@media(max-width:375px){
+    
+    .left-section p{
+        font-size: 16px;
+    }
+}
+@media(max-width:290px){
+    .elementor-icon-list-text{
+        font-size: 8px;
+    }
+    .custommm img{
+        width: 100px;
+    }
+    .mobile-btmm{
+        padding: 5px 3px;
+    }
+    .left-section p{
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/26cd613740387113.css" />
+    <link rel="stylesheet" href="css/9d9cdd73d0fb1d6b.css" />
+    <link rel="stylesheet" href="css/9e8d25b4389ada94.css" />
+    <link rel="stylesheet" href="css/dafa6e8a7582d647.css" />
+    <link rel="stylesheet" href="css/stylee.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <script src="js/175-79aafbe32a245b75.js"></script>
+    <script src="js/1a92c0be-749454075e8963ae.js"></script>
+    <script src="js/1dd3208c-0cf26607f1364947.js"></script>
+    <script src="js/562-c6c65f8bf950d96a.js"></script>
+    <script src="js/728-bb267eac9aed5b35.js"></script>
+    <script src="js/902-621f51085cf07606.js"></script>
+    <script src="js/91-8f982fa84c2e61d4.js"></script>
+    <script src="js/997-2dc9afcc9fb0038c.js"></script>
+    <script src="js/error-02a23c6b16bcf1f3.js"></script>
+    <script src="js/layout-cc17639511371e9c.js"></script>
+    <script src="js/main-app-86a33d1a2cf6826a.js"></script>
+    <script src="js/page-8326d719b4d85c43.js"></script>
+    <script src="js/polyfills-c67a75d1b6f99dc8.js"></script>
+    <!-- <script src="js/webpack-545646608865a03e.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="mainSection">
+      <div class="formstepper__bg">
+        <div class="mainContainer">
+          <div class="formstepper__wrapper">
+            <div class="formstepper__header">
+              <div class="header_logoMenuWrapper__kSFlK">
+                <a title="Brightway" class="custommm" href="index.html"
+                  ><img
+                    alt="company logo"
+                    fetchpriority="high"
+                    decoding="async"
+                    data-nimg="1"
+                    style="color: transparent; object-fit: contain"
+                    src="images/IMG-20240401-WA0109-removebg-preview.png"
+                /></a>
+              </div>
+
+              <div class="close_btn">
+                <a href="index.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 48 48"
+                    class="svg"
+                    width="24"
+                    height="24"
+                  >
+                    <path
+                      stroke="#ffff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                      d="M36 12 12 36m0-24 24 24"
+                      style="stroke: #fff; stroke-opacity: 1"
+                    ></path>
+                  </svg>
+                  Close
+                </a>
+              </div>
+            </div>
+            <div>
+              <div class="formstepper__body">
+                <h1 class="h1">Welcome to <b>InsuredbyVGI</b></h1>
+                <p>
+                  Ready to get started? We just need to learn a bit about you.
+                  Cool?
+                </p>
+                <div class="formstepper__footer">
+                  <a href="info.html">
+                    <button
+                      title="Submit"
+                      class="l_continue StepperButton_StepperButtoncontainer__ayYHE"
+                      type="submit"
+                    >
+                      Continue<img src="./images/svgexport-2 (4).svg" alt="" />
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#slider").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000, // Adjust the speed as needed
+        });
+      });
+    </script>
+    <script>
+      // Get the burger button, menu, and all menu items
+      const burgerButton = document.querySelector(
+        ".header_hamburgerButton__BBrCY"
+      );
+      const menu = document.querySelector(".header_megaMenu__2Re_R");
+      const menuItems = document.querySelectorAll(
+        ".header_subMenuMobileContent__XG94M"
+      );
+
+      // Function to toggle the 'opened' class on the menu
+      function toggleMenu() {
+        menu.classList.toggle("header_megaMenu--opened__BlPW3");
+      }
+
+      // Function to close the menu
+      function closeMenu() {
+        menu.classList.remove("header_megaMenu--opened__BlPW3");
+      }
+
+      // Add click event listener to the burger button
+      burgerButton.addEventListener("click", toggleMenu);
+
+      // Add click event listeners to the back buttons to close the menu
+      const backButtons = document.querySelectorAll(
+        ".header_backBtnContainer__QS8Kj button"
+      );
+      backButtons.forEach((button) => {
+        button.addEventListener("click", closeMenu);
+      });
+
+      // Add click event listeners to each menu item to close the menu
+      menuItems.forEach((item) => {
+        item.addEventListener("click", closeMenu);
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

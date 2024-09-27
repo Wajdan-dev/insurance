@@ -1,0 +1,782 @@
+/* components/Header.module.scss */
+
+@use '../../styles/shared/include' as *;
+
+.headerContainer {
+  position: sticky;
+  z-index: 99;
+  width: 100%;
+  top: 0;
+  right: 0;
+}
+
+.header {
+  @media #{$lgn} {
+    border-bottom: rem(1) solid $white;
+  }
+  
+  .headerWrapper {
+    display: flex;
+    padding: rem(24) rem(20);
+    justify-content: space-between;
+    max-height: rem(72);
+    background-color: $deepBlue;
+    border-bottom: rem(1.5) solid $periwinkleGrey;
+    
+    @media #{$lgn} {
+      border-bottom: none;
+      padding: rem(22) rem(32);
+      max-height: rem(80);
+      font-size: rem(18);
+    }
+    
+    button {
+      background: transparent;
+    }
+  }
+
+  .logoMenuWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .headerLogo img {
+    width: rem(122);
+    min-height: rem(25);
+    object-fit: fill;
+    
+    @media #{$xl} {
+      margin-right: rem(90);
+    }
+    
+    @media #{$xxl} {
+      margin-right: rem(174);
+      height: auto;
+    }
+  }
+
+  .navList {
+    display: none;
+    
+    @media #{$lgn} {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navItem {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    list-style: none;
+    min-width: fit-content;
+    font-size: rem(14);
+    color: $white;
+    margin-right: rem(20);
+    border-bottom: rem(1) solid transparent;
+    transition: border-bottom 0.6s ease;
+
+    @media #{$xl} {
+      font-size: rem(16);
+    }
+
+    @media #{$xxl} {
+      font-size: rem(16);
+      margin-right: rem(32);
+    }
+
+    &:hover {
+      color: $brightYellow;
+
+      svg {
+        path {
+          stroke: $brightYellow;
+        }
+      }
+    }
+
+    &--activeMenu {
+      color: $brightYellow;
+      transition: border-bottom 0.6s ease;
+
+      svg {
+        path {
+          stroke: $brightYellow;
+        }
+        transition: transform 0.6s ease;
+        transform: rotate(-180deg);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100% !important;
+        height: rem(1);
+        bottom: rem(-2);
+        left: 0 !important;
+        background-color: $brightYellow !important;
+        transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      }
+
+      &:hover::after {
+        width: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: rem(1);
+      bottom: rem(-2);
+      right: 0;
+      background-color: $white;
+      transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+
+    &:hover::after {
+      background-color: $brightYellow;
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+
+  .navContent {
+    display: flex;
+    gap: rem(4);
+    align-items: center;
+    min-height: rem(24);
+  }
+
+  .desktopButtonWrapper {
+    display: none;
+    
+    @media #{$lgn} {
+      display: flex;
+    }
+  }
+
+  .hamburgerButton {
+    display: flex;
+    align-items: center;
+    
+    @media #{$lgn} {
+      display: none;
+    }
+  }
+
+  .hamburgerIcon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: rem(25);
+    height: rem(25);
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    
+    @media #{$lgn} {
+      display: none;
+    }
+
+    .bar {
+      display: block;
+      position: absolute;
+      height: rem(1.5);
+      width: rem(22);
+      background: $white;
+      border-radius: rem(9);
+      opacity: 1;
+      right: 0;
+      transform-origin: left center;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+
+      &:nth-child(1) {
+        top: rem(5);
+      }
+
+      &:nth-child(2) {
+        top: rem(11);
+      }
+
+      &:last-child {
+        width: 70%;
+        top: rem(17);
+      }
+
+      &--clicked {
+        &:nth-child(1) {
+          top: rem(5);
+          right: 0;
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          width: 0;
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          top: rem(20);
+          width: rem(22);
+          right: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .hamburgerText {
+    color: $white;
+    margin-right: rem(8);
+    font-size: rem(18);
+    font-weight: 300;
+    line-height: 100%;
+  }
+}
+
+.megaMenu {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+  @media #{$lgn} {
+    &::before {
+      content: '';
+      top: -10px;
+      left: 0;
+      background: $deepBlue;
+      width: 100%;
+      height: rem(100);
+      position: absolute;
+    }
+  }
+  
+  .megaMenuContentsConatiner,
+  .megaSubMenuContentsConatiner {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $deepBlue;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .menuMobileHeading,
+  .subMenuMobileHeading {
+    padding: rem(72) rem(20) rem(24);
+    color: $white;
+    position: relative;
+    
+    h5 {
+      font-size: rem(24);
+      font-weight: 300;
+      line-height: 100%;
+    }
+
+    .backBtn {
+      button {
+        cursor: pointer;
+        background: transparent;
+        color: $white;
+        font-size: rem(16);
+        
+        &:hover {
+          color: $brightYellow;
+        }
+      }
+    }
+
+    &--subheading {
+      padding-top: rem(72);
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+      justify-content: space-between;
+    }
+  }
+
+  .subMenuMobileHeading {
+    .backBtn {
+      svg {
+        height: rem(16);
+        width: rem(16);
+      }
+
+      &:hover {
+        path {
+          stroke: $brightYellow !important;
+        }
+        
+        button {
+          color: $brightYellow;
+        }
+      }
+    }
+
+    .backBtnContainer {
+      display: flex;
+      align-items: center;
+      gap: rem(8);
+    }
+
+    &--subheading {
+      padding-top: rem(36);
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+      justify-content: space-between;
+    }
+  }
+
+  .menuMobileContent,
+  .subMenuMobileContent {
+    display: flex;
+    justify-content: space-between;
+    font-size: rem(18);
+    font-weight: 300;
+    max-height: rem(58);
+    border-bottom: rem(1) solid $periwinkleGrey;
+    
+    &:first-child {
+      border-top: rem(1) solid $periwinkleGrey;
+    }
+
+    svg {
+      width: rem(15);
+      height: rem(15);
+    }
+
+    &:hover {
+      color: $brightYellow;
+    }
+
+    .menuItemLink {
+      width: 100%;
+      
+      a {
+        width: 100%;
+        padding: rem(20);
+      }
+
+      button {
+        text-align: left;
+      }
+
+      &:hover {
+        color: $brightYellow !important;
+      }
+    }
+
+    .menuItemDropdown {
+      width: 100%;
+      padding: rem(20);
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+
+      &:hover {
+        color: $brightYellow;
+      }
+    }
+  }
+
+  .menuMobileActionContent {
+    display: flex;
+    font-size: rem(16);
+    font-weight: 300;
+    color: $white;
+    padding: rem(10) rem(20) rem(20);
+    gap: rem(47);
+    
+    a {
+      &:hover {
+        color: $brightYellow;
+      }
+    }
+  }
+
+  .menuDesktopContentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: rem(35) 0 rem(45) 0;
+    
+    h5 {
+      color: $white;
+      font-size: rem(16);
+    }
+
+    ul {
+      margin-top: rem(44);
+      max-height: 42vh;
+      overflow-y: auto;
+
+      @media #{$xl} {
+        max-height: 46vh;
+      }
+    }
+
+    .menuHeading {
+      padding-left: rem(32);
+    }
+
+    .menuDesktopContent {
+      display: flex;
+      justify-content: space-between;
+      padding: rem(10) rem(3.5) rem(20);
+
+      h3 {
+        font-size: rem(32);
+        font-weight: 300;
+        color: $white;
+        width: 100%;
+
+        a {
+          position: relative;
+          padding-top: rem(1);
+          
+          &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: rem(1);
+            bottom: rem(-2);
+            right: 0;
+            background-color: $brightYellow;
+            transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+          }
+
+          &:hover {
+            color: $brightYellow;
+          }
+
+          &:hover::after {
+            left: 0;
+            right: auto;
+            width: 100%;
+          }
+        }
+
+        button {
+          text-align: left;
+        }
+        
+        visibility: visible;
+      }
+    }
+
+    .menuBottomContent {
+      display: flex;
+      width: 100%;
+      max-height: 12vh;
+
+      h5 {
+        position: relative;
+        font-size: rem(16);
+        color: $white;
+        font-weight: 500;
+        margin-right: rem(39);
+
+        &:hover {
+          color: $brightYellow;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: rem(1);
+          bottom: rem(-2);
+          right: 0;
+          background-color: $white;
+          transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+
+        &:hover::after {
+          background-color: $brightYellow;
+          left: 0;
+          right: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    &:last-child {
+      padding-right: rem(100);
+    }
+  }
+
+  .megaMenuContainer {
+    position: relative;
+    z-index: 9;
+    height: 100%;
+  }
+
+  .subMenuList {
+    height: calc(100% - 322px);
+    overflow-y: auto;
+  }
+
+  .agencySubMenuList {
+    height: calc(100% - 380px);
+    overflow-y: auto;
+  }
+
+  .menuDesktopBanner {
+    margin-top: rem(16);
+    border-top: rem(2) solid $periwinkleGrey;
+    height: 85%;
+    display: grid;
+    grid-template-columns: 25% 45% 30%;
+    background-color: $deepBlue;
+
+    @media #{$xxl} {
+      grid-template-columns: 25% 46% 29%;
+    }
+
+    &--containsDualList {
+      grid-template-columns: 26% 74%;
+      
+      .menuDesktopContentWrapper {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        li {
+          width: 50%;
+        }
+
+        h5 {
+          padding-left: rem(3.5);
+        }
+      }
+    }
+  }
+
+  .menuDesktopImageContent {
+    overflow: hidden;
+    padding-bottom: rem(110);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top right;
+
+      @media (min-height: 900px) {
+        object-fit: cover;
+        object-position: top left;
+      }
+
+      @media (min-width: 1400px) {
+        object-fit: contain;
+        object-position: top right;
+      }
+    }
+  }
+
+  .menuMobileContentWrapper {
+    height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: $white;
+
+    @media (orientation: landscape) and (max-height: 420px) {
+      min-height: 100px;
+    }
+  }
+
+  .subMenuMobileContentWrapper {
+    background-color: $deepBlue;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45vh;
+    pointer-events: none;
+    overflow-x: hidden;
+    color: $white;
+    transform: translateX(100%);
+    pointer-events: all;
+
+    .menuActionButtonsConatiner {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .subMenuItemFooter {
+      width: 100%;
+      display: flex;
+      font-size: rem(16);
+      font-weight: 300;
+      color: $white;
+      padding-left: rem(20);
+      gap: rem(47);
+      padding-bottom: rem(34);
+
+      a {
+        &:hover {
+          color: $brightYellow;
+        }
+      }
+    }
+
+    &--isActive {
+      height: 100%;
+      overflow-y: auto;
+      pointer-events: all;
+      animation: anim 0.3s linear;
+      animation-fill-mode: forwards;
+    }
+
+    &--isInactive {
+      height: 100vh;
+      pointer-events: all;
+      animation: backanim 0.3s linear;
+      animation-fill-mode: backwards;
+    }
+
+    @keyframes anim {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes backanim {
+      100% {
+        transform: translateX(100%);
+      }
+
+      0% {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .mobileButtonWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: rem(8);
+    padding: 0 rem(20) rem(20) rem(20);
+    margin: rem(14) 0;
+    
+    a {
+      width: 100% !important;
+      border: solid $white 1px;
+    }
+
+    @media #{$lgn} {
+      display: none;
+    }
+
+    @media (orientation: landscape) and (max-height: 420px) {
+      flex-direction: row;
+
+      a {
+        width: calc((100% - rem(20)) / 3) !important;
+      }
+
+      padding-bottom: 0;
+    }
+  }
+
+  .megaMenuFooter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 15%;
+    opacity: 0.8;
+
+    button {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      color: $white;
+      cursor: pointer;
+      padding: rem(0) rem(44);
+
+      svg {
+        width: rem(24);
+        height: rem(24);
+      }
+
+      @media #{$xxl} {
+        font-size: rem(16);
+      }
+
+      @media #{$xlg} {
+        font-size: rem(18);
+
+        svg {
+          width: rem(26);
+          height: rem(26);
+        }
+      }
+    }
+  }
+
+  &--opened {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - rem(72));
+    opacity: 1;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    pointer-events: all;
+    visibility: visible;
+
+    @media #{$lgn} {
+      height: calc(100vh - rem(80));
+      overflow: hidden;
+    }
+
+    @media #{$lgn} {
+      &::before {
+        content: '';
+        top: -10px;
+        left: 0;
+        background: $deepBlue;
+        width: 100%;
+        height: rem(100);
+        position: absolute;
+      }
+    }
+  }
+
+  /* Change the width of the scrollbar */
+  ::-webkit-scrollbar {
+    width: rem(4); /* Adjust the width as needed */
+  }
+
+  /* Change the background color of the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background: $periwinkleGrey; /* Change to your desired background color */
+  }
+
+  /* Change the color of the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background: $white; /* Change to your desired thumb color */
+  }
+}
