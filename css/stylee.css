@@ -598,6 +598,7 @@ a {
     padding: 4rem;
 }
 
+
  
 
 @media screen and (min-width: 769px) {
@@ -671,6 +672,9 @@ a {
 
     .formstepper__bg.theme__yellow .formstepper__footer {
         padding-bottom: 5rem;
+    }
+    .descs{
+        font-size: 23px;
     }
 }
 
