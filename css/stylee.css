@@ -598,7 +598,9 @@ a {
     padding: 4rem;
 }
 
-
+.touch-btn{
+    display: none;
+}
  
 
 @media screen and (min-width: 769px) {
@@ -767,6 +769,12 @@ a {
     .login-card{
         background-color: white;
         padding: 15px;
+    }
+    .touch-btn{
+        display: block;
+        padding: 10px 5px;
+        color: black;
+        border: 2px solid black;
     }
 
 }
